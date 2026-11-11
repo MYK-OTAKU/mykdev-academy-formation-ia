@@ -47,8 +47,21 @@ npm run preview
 
 ---
 
-## 🌐 Publication sur GitHub Pages
+## 🌐 Publication sur Netlify (Recommandé) ou GitHub Pages
 
+### A. Déploiement sur Netlify
+Un fichier `netlify.toml` est déjà configuré à la racine du projet (`publish = "dist"`, `command = "npm run build"`).
+Vous avez **3 façons simples** de le publier sur Netlify :
+1. **Via la ligne de commande (instantané) :**
+   ```bash
+   npx netlify-cli deploy --dir dist --prod
+   ```
+2. **Par glisser-déposer (Netlify Drop) :**
+   Glissez directement le dossier `dist/` sur [app.netlify.com/drop](https://app.netlify.com/drop).
+3. **Via connexion GitHub :**
+   Importez le dépôt dans Netlify : il détectera automatiquement `netlify.toml`, lancera `npm run build` et publiera le dossier `dist/`.
+
+### B. Publication sur GitHub Pages
 ### 1. Configuration du chemin (`vite.config.ts`)
 Le fichier `vite.config.ts` utilise déjà `base: './'` (chemins relatifs). Cela signifie que l'application fonctionne **automatiquement** quelle que soit l'URL ou le nom de votre dépôt GitHub (par exemple `https://<votre-pseudo>.github.io/kaeloo-mission-ia/` ou à la racine d'un domaine personnalisé), sans aucune erreur de routage.
 
